@@ -9,17 +9,18 @@ import {
   FlatList
 } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import Tarefa from './.expo/src/tarefa';
+import Tarefa from './src/tarefa';
 
 export default function App() {
   const [tarefa, setTarefa] = useState('')
   const [lista, setLista] = useState([])
 
   function handleAdd() {
-    if (tarefa === '') {
+
+    if (tarefa.trim() === '') {
+      alert('Preencha o campo tarefa!')
       return;
     }
-
     const dados = {
       key: Date.now(),
       item: tarefa
